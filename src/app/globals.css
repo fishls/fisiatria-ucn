@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────────────
+   FISIATRÍA UCN — Design System Tokens (Tailwind v4)
+   Canonical palette: UCN Orange primary + full MD3 surface hierarchy
+   ───────────────────────────────────────────────────── */
+@theme {
+  /* Brand colors */
+  --color-primary:              #F7931D;
+  --color-primary-container:    #f7931d;
+  --color-on-primary:           #ffffff;
+  --color-on-primary-container: #603500;
+
+  --color-secondary:              #006591;
+  --color-secondary-container:    #4ebdff;
+  --color-on-secondary:           #ffffff;
+  --color-on-secondary-container: #004a6c;
+
+  --color-tertiary:              #4e5d87;
+  --color-tertiary-container:    #9aaad8;
+  --color-on-tertiary:           #ffffff;
+  --color-on-tertiary-container: #2e3e65;
+
+  /* Surface hierarchy (MD3) */
+  --color-background:                #f5faff;
+  --color-surface:                   #f5faff;
+  --color-surface-bright:            #f5faff;
+  --color-surface-dim:               #cddce6;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #e8f5ff;
+  --color-surface-container:         #e1f0fb;
+  --color-surface-container-high:    #dceaf5;
+  --color-surface-container-highest: #d6e5ef;
+
+  /* On-surface */
+  --color-on-surface:         #0f1d25;
+  --color-on-surface-variant: #554335;
+  --color-inverse-surface:    #25323a;
+  --color-inverse-on-surface: #e4f3fd;
+
+  /* Utility colors */
+  --color-outline:            #887363;
+  --color-outline-variant:    #dbc2af;
+  --color-error:              #ba1a1a;
+  --color-error-container:    #ffdad6;
+  --color-on-error:           #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Typography families — wired to next/font CSS variables */
+  --font-headline: var(--font-manrope), 'Manrope', sans-serif;
+  --font-body:     var(--font-inter), 'Inter', sans-serif;
+  --font-label:    var(--font-inter), 'Inter', sans-serif;
+
+  /* Border radius — MD3 shape scale */
+  --radius:     0.25rem;
+  --radius-lg:  0.5rem;
+  --radius-xl:  0.75rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─────────────────────────────────────────────────────
+   Global base styles
+   ───────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: max(884px, 100dvh);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+
+/* ─────────────────────────────────────────────────────
+   Material Symbols variable font settings
+   ───────────────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─────────────────────────────────────────────────────
+   Shared utility classes
+   ───────────────────────────────────────────────────── */
+
+/* Ambient orange glow — cards throughout the app */
+.editorial-shadow {
+  box-shadow: 0 4px 20px rgba(247, 147, 29, 0.08);
+}
+
+/* MD3 elevation levels */
+.shadow-card {
+  box-shadow: 0 12px 32px rgba(0, 31, 37, 0.06);
+}
+.shadow-card-hover {
+  box-shadow: 0 20px 48px rgba(0, 31, 37, 0.10);
+}
+
+/* Frosted glass for fixed nav bars */
+.glass-nav {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Hide scrollbar — horizontal chip rows */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Primary gradient — CTA buttons */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 80%, #000));
 }
