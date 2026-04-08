@@ -1,5 +1,5 @@
 import type { Seminar } from "@/types";
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from "@/lib/firebase/admin";
 
 const COL = "seminars";
 
@@ -13,14 +13,14 @@ function toSeminar(id: string, data: FirebaseFirestore.DocumentData): Seminar {
 
 export async function getAllSeminars(): Promise<Seminar[]> {
   try {
-    const snap = await adminDb.collection(COL).orderBy("date", "asc").get();
+    const snap = await getAdminDb().collection(COL).orderBy("date", "asc").get();
     return snap.docs.map((d) => toSeminar(d.id, d.data()));
   } catch { return []; }
 }
 
 export async function getSeminarById(id: string): Promise<Seminar | undefined> {
   try {
-    const doc = await adminDb.collection(COL).doc(id).get();
+    const doc = await getAdminDb().collection(COL).doc(id).get();
     if (!doc.exists) return undefined;
     return toSeminar(doc.id, doc.data()!);
   } catch { return undefined; }

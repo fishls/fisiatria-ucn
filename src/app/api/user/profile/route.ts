@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createUser } from "@/lib/firebase/firestore/users";
 
-// POST /api/user/profile — called from registration confirmation to create Firestore profile
 export async function POST(request: NextRequest) {
   try {
     const { uid, fullName, email } = await request.json();
     if (!uid || !fullName || !email) {
       return NextResponse.json({ error: "uid, fullName y email son requeridos" }, { status: 400 });
     }
-
     await createUser(uid, fullName, email);
     return NextResponse.json({ ok: true });
   } catch (err) {
