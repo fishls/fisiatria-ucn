@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 };
 
 type SearchPageProps = {
-  searchParams: Promise<{
+  searchParams: {
     q?: string;
     journals?: string;
     desde?: string;
     hasta?: string;
-  }>;
+  };
 };
 
 export default async function BuscarPage({ searchParams }: SearchPageProps) {
-  const sp = await searchParams;
+  const sp = searchParams;
 
   const journals = sp.journals
     ? (sp.journals.split(",") as JournalSource[])

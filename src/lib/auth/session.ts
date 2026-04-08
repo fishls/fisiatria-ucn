@@ -13,7 +13,7 @@ export type SessionUser = {
  * Use in Server Components and Route Handlers.
  */
 export async function getSession(): Promise<SessionUser | null> {
-  const cookieStore    = await cookies();
+  const cookieStore    = cookies();
   const sessionCookie  = cookieStore.get("session")?.value;
   if (!sessionCookie) return null;
 

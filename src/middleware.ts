@@ -7,7 +7,7 @@ import type { NextRequest } from "next/server";
  * Aquí solo comprobamos que la cookie exista para redirigir rápido; la
  * validación completa se hace en los Server Components / Route Handlers.
  */
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const session = request.cookies.get("session")?.value;
 
   if (!session) {

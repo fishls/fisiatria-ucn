@@ -5,12 +5,12 @@ import { getAbstractById, getAllAbstracts } from "@/lib/data";
 import { SOURCE_VARIANT } from "@/types";
 import { Badge, Button, MetadataItem, Chip } from "@/components/ui";
 
-type Props = { params: Promise<{ id: string }> };
+type Props = { params: { id: string } };
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const article = await getAbstractById(id);
   if (!article) return { title: "No encontrado — Fisiatría UCN" };
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function AbstractDetailPage({ params }: Props) {
-  const { id } = await params;
+  const { id } = params;
   const article = await getAbstractById(id);
   if (!article) notFound();
 

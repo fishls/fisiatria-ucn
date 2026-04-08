@@ -1,6 +1,7 @@
 import type { UserProfile } from "@/types";
 import { adminDb } from "@/lib/firebase/admin";
-import { FieldValue } from "firebase-admin/firestore";
+import { firestore } from "firebase-admin";
+const { FieldValue } = firestore;
 
 const COL = "users";
 
