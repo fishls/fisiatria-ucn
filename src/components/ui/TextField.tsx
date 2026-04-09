@@ -29,7 +29,7 @@ export default function TextField(props: TextFieldProps) {
 
   const inputClasses = [
     "w-full bg-surface-container-low border-0 border-b-2 transition-all duration-200",
-    "rounded-t-xl py-4 px-5 text-on-surface placeholder:text-slate-400",
+    "rounded-t-xl py-4 px-5 text-on-surface placeholder:text-on-surface-variant/50",
     "focus:outline-none focus:ring-0",
     error
       ? "border-error focus:border-error"
@@ -72,7 +72,7 @@ export default function TextField(props: TextFieldProps) {
         </p>
       )}
       {hint && !error && (
-        <p className="text-xs text-slate-500 px-1 italic">{hint}</p>
+        <p className="text-xs text-on-surface-variant px-1 italic">{hint}</p>
       )}
     </div>
   );

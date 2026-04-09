@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useCallback, useTransition } from "react";
+import { useTranslations } from "next-intl";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import type { JournalSource } from "@/types";
 
@@ -24,6 +25,7 @@ const DEFAULT_JOURNALS: Journal[] = [
  * Reading: useSearchParams()  |  Writing: router.replace() via transition
  */
 export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSidebarProps) {
+  const t = useTranslations("search");
   const router     = useRouter();
   const pathname   = usePathname();
   const params     = useSearchParams();
@@ -85,20 +87,20 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
       ].join(" ")}>
         <h3 className="font-headline font-bold text-xl text-primary mb-6 flex items-center gap-2">
           <MaterialIcon name="filter_list" className="text-primary" />
-          Parámetros de Búsqueda
+          {t("filters.parameters")}
         </h3>
 
         {/* Keywords */}
         <div className="mb-8">
           <label className="block font-label text-sm font-semibold text-on-surface-variant mb-3 uppercase tracking-wider">
-            Palabras Clave
+            {t("filters.keywords")}
           </label>
           <div className="relative">
             <input
               type="text"
               value={keywords}
               onChange={(e) => updateParam("q", e.target.value)}
-              placeholder="p. ej. Neurorehabilitación"
+              placeholder={t("filters.keywordsPlaceholder")}
               className="w-full bg-surface-container-high border-none rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary/50 font-body transition-all text-on-surface placeholder:text-outline"
             />
             <MaterialIcon name="label" className="absolute left-4 top-1/2 -translate-y-1/2 text-outline" />
@@ -108,7 +110,7 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
         {/* Journal checkboxes */}
         <div className="mb-8">
           <label className="block font-label text-sm font-semibold text-on-surface-variant mb-3 uppercase tracking-wider">
-            Revistas
+            {t("filters.journals")}
           </label>
           <div className="space-y-3">
             {journals.map(({ id, label }) => (
@@ -130,7 +132,7 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
         {/* Date range */}
         <div className="mb-8">
           <label className="block font-label text-sm font-semibold text-on-surface-variant mb-3 uppercase tracking-wider">
-            Rango de Fechas
+            {t("filters.dateRange")}
           </label>
           <div className="grid grid-cols-2 gap-3 mb-4">
             {(["5y", "all"] as const).map((preset) => (
@@ -145,13 +147,13 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
                     : "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest",
                 ].join(" ")}
               >
-                {preset === "5y" ? "Últimos 5 años" : "Archivo Completo"}
+                {preset === "5y" ? t("filters.last5Years") : t("filters.fullArchive")}
               </button>
             ))}
           </div>
           <div className="space-y-4">
             <div>
-              <span className="text-[10px] font-bold text-outline uppercase ml-1">DESDE</span>
+              <span className="text-[10px] font-bold text-outline uppercase ml-1">{t("filters.from")}</span>
               <input
                 type="date"
                 value={dateFrom}
@@ -160,7 +162,7 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
               />
             </div>
             <div>
-              <span className="text-[10px] font-bold text-outline uppercase ml-1">HASTA</span>
+              <span className="text-[10px] font-bold text-outline uppercase ml-1">{t("filters.to")}</span>
               <input
                 type="date"
                 value={dateTo}
@@ -177,7 +179,7 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
           disabled={pending}
           className="w-full gradient-primary text-on-primary py-4 rounded-full font-headline font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-60"
         >
-          {pending ? "Buscando…" : "Ejecutar Búsqueda"}
+          {pending ? t("searching") : t("executeSearch")}
         </button>
       </div>
 
@@ -186,9 +188,9 @@ export default function FilterSidebar({ journals = DEFAULT_JOURNALS }: FilterSid
         <div className="flex gap-4">
           <MaterialIcon name="verified_user" fill={1} className="text-tertiary shrink-0" />
           <div>
-            <h4 className="font-headline font-bold text-tertiary text-sm">Datos Clínicos Verificados</h4>
+            <h4 className="font-headline font-bold text-tertiary text-sm">{t("verifiedData.title")}</h4>
             <p className="text-xs text-on-tertiary-container mt-1 leading-relaxed">
-              Su búsqueda está restringida a fuentes indexadas con un alto factor de impacto (&gt;3.5).
+              {t("verifiedData.description")}
             </p>
           </div>
         </div>

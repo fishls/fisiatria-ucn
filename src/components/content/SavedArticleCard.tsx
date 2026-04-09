@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 
 type SavedArticleCardProps = {
@@ -8,7 +9,6 @@ type SavedArticleCardProps = {
   tags?: string[];
   date: string;
   href: string;
-  pdfLabel?: string;
 };
 
 /**
@@ -16,15 +16,15 @@ type SavedArticleCardProps = {
  * Pattern from guardados_fisiatr_a_ucn lines 143–165.
  * Absolute bookmark icon top-right, specialty tags, PDF CTA footer.
  */
-export default function SavedArticleCard({
+export default async function SavedArticleCard({
   source,
   sourceVariant = "primary",
   title,
   tags = [],
   date,
   href,
-  pdfLabel = "Leer PDF",
 }: SavedArticleCardProps) {
+  const t = await getTranslations("saved");
   const color = sourceVariant === "primary" ? "primary" : "secondary";
 
   return (
@@ -69,7 +69,7 @@ export default function SavedArticleCard({
             <span className="text-xs text-on-surface-variant font-medium">{date}</span>
           </div>
           <span className={`flex items-center gap-1 text-${color} font-bold text-sm`}>
-            {pdfLabel}
+            {t("readPdf")}
             <MaterialIcon name="arrow_forward" size={20} className="text-sm" />
           </span>
         </div>

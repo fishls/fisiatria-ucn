@@ -1,0 +1,158 @@
+{
+  "app": {
+    "name": "Fisiatría UCN",
+    "tagline": "Plataforma académica de Fisiatría",
+    "institution": "Universidad Católica del Norte",
+    "shortName": "UCN"
+  },
+  "nav": {
+    "back": "Volver",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "profile": "Perfil",
+    "explore": "Explorar",
+    "saved": "Guardados",
+    "home": "Inicio",
+    "publications": "Publicaciones"
+  },
+  "actions": {
+    "save": "Guardar",
+    "share": "Compartir",
+    "viewAll": "Ver todo",
+    "viewOriginal": "Ver original",
+    "syncCalendar": "Sincronizar calendario",
+    "readSummary": "Leer resumen",
+    "notFound": "Volver al inicio"
+  },
+  "errors": {
+    "notFound": "Página no encontrada",
+    "notFoundDesc": "La página que buscas no existe o ha sido movida."
+  },
+  "notifications": "Notificaciones",
+  "filters": {
+    "parameters": "Parámetros de búsqueda",
+    "keywords": "Palabras clave",
+    "keywordsPlaceholder": "Ej: rehabilitación, dolor crónico...",
+    "journals": "Revistas científicas",
+    "dateRange": "Rango de fechas",
+    "from": "Desde",
+    "to": "Hasta",
+    "last5Years": "Últimos 5 años",
+    "fullArchive": "Archivo completo"
+  },
+  "searching": "Buscando...",
+  "executeSearch": "Ejecutar búsqueda",
+  "verifiedData": {
+    "title": "Datos verificados",
+    "description": "Información revisada por especialistas UCN"
+  },
+  "schedule": {
+    "featured": "Destacado",
+    "title": "Programación Académica",
+    "subtitle": "Calendario",
+    "semester": "Primer Semestre 2026",
+    "nextPresentations": "Próximas presentaciones",
+    "academicSources": "Fuentes académicas",
+    "notes": "Notas importantes",
+    "notesDescription": "Las presentaciones están sujetas a cambios. Verifique el calendario regularmente."
+  },
+  "saved": {
+    "readPdf": "Leer PDF",
+    "title": "Guardados",
+    "subtitle": "Biblioteca",
+    "filterAll": "Todos",
+    "filterJournal": "Revista",
+    "filterDate": "Fecha",
+    "filterType": "Tipo",
+    "articlesTitle": "Artículos guardados",
+    "noArticles": "No tienes artículos guardados",
+    "seminarsTitle": "Seminarios guardados",
+    "noSeminars": "No tienes seminarios guardados"
+  },
+  "metadata": {
+    "speaker": "Ponente",
+    "peerReviewed": "Revisado por pares",
+    "openAccess": "Acceso abierto",
+    "published": "Publicado",
+    "doi": "DOI",
+    "abstract": "Resumen",
+    "keywords": "Palabras clave",
+    "verifiedSource": "Fuente verificada UCN"
+  },
+  "detail": {
+    "title": "Detalle del artículo",
+    "breadcrumbs": "Navegación",
+    "pdf": "Descargar PDF"
+  },
+  "dashboard": {
+    "featured": "Destacado en",
+    "saveToLibrary": "Guardar en biblioteca",
+    "impactTitle": "Métricas de impacto",
+    "impactDescription": "Impacto académico de la investigación en Fisiatría",
+    "archiveTitle": "Archivo histórico",
+    "noPublications": "No hay publicaciones",
+    "noPublicationsDesc": "No se encontraron publicaciones recientes"
+  },
+  "hero": {
+    "subtitle": "Plataforma académica",
+    "title": "Fisiatría UCN",
+    "badges": {
+      "ajpmr": "AJPMR",
+      "minerva": "Minerva"
+    }
+  },
+  "empty": {
+    "noPublications": "No hay publicaciones disponibles",
+    "noPublicationsDesc": "Vuelve más tarde para ver nuevos contenidos"
+  },
+  "search": {
+    "title": "Buscar",
+    "description": "Busca artículos científicos de fisiatría",
+    "subtitle": "Explorar",
+    "results": "resultado",
+    "resultsPlural": "resultados",
+    "noResults": "No se encontraron resultados",
+    "noResultsDesc": "Intenta con otros términos de búsqueda"
+  },
+  "login": {
+    "welcomeBack": "Bienvenido de vuelta",
+    "loginDescription": "Inicia sesión para acceder a la plataforma",
+    "stepLabel": "Paso 1 de 2",
+    "login": "Iniciar sesión",
+    "institutionalEmail": "Correo institucional",
+    "password": "Contraseña",
+    "enterPassword": "Ingresa tu contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "showPassword": "Mostrar contraseña",
+    "signingIn": "Iniciando sesión...",
+    "signIn": "Iniciar sesión",
+    "noAccount": "¿No tienes cuenta?",
+    "registerHere": "Regístrate aquí",
+    "invalidCredentials": "Credenciales inválidas",
+    "loginError": "Error al iniciar sesión"
+  },
+  "profile": {
+    "changePhoto": "Cambiar foto",
+    "specialty": "Medicina Física y Rehabilitación",
+    "personalInfo": "Información personal",
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "institution": "Institución",
+    "interests": "Especialidades de interés",
+    "addSpecialty": "Agregar especialidad",
+    "preferences": "Preferencias",
+    "notifications": {
+      "newAbstracts": "Nuevos abstracts",
+      "newAbstractsDesc": "Recibe notificaciones cuando haya nuevos abstracts disponibles",
+      "weeklyDigest": "Resumen semanal",
+      "weeklyDigestDesc": "Recibe un resumen semanal de las publicaciones más relevantes"
+    },
+    "security": {
+      "title": "Seguridad",
+      "changePassword": "Cambiar contraseña",
+      "twoFactor": "Autenticación de dos factores",
+      "privacy": "Privacidad de datos"
+    },
+    "logout": "Cerrar sesión"
+  }
+}

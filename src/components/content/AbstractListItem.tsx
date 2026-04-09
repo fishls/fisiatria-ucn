@@ -31,7 +31,7 @@ export default function AbstractListItem({
     <Link
       href={href}
       className={[
-        "group block bg-gray-50 p-5 rounded-xl",
+        "group block bg-surface-container-low p-5 rounded-xl",
         "flex flex-col md:flex-row md:items-center justify-between gap-4",
         "border border-transparent transition-colors duration-200",
         `hover:bg-${color}/5 hover:border-${color}/20`,
@@ -44,10 +44,10 @@ export default function AbstractListItem({
             {source}
           </span>
           <span className={`w-1 h-1 rounded-full bg-${color}/30`} aria-hidden />
-          <span className="text-[10px] font-bold text-gray-500">{date}</span>
+          <span className="text-[10px] font-bold text-on-surface-variant">{date}</span>
         </div>
         <h4
-          className={`font-headline font-bold text-gray-900 group-hover:text-${color} transition-colors`}
+          className={`font-headline font-bold text-on-surface group-hover:text-${color} transition-colors`}
         >
           {title}
         </h4>
@@ -60,14 +60,14 @@ export default function AbstractListItem({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-white text-gray-600 border border-gray-100 rounded-full text-[10px] font-bold"
+                className="px-3 py-1 bg-surface-container-lowest text-on-surface-variant border border-outline-variant/20 rounded-full text-[10px] font-bold"
               >
                 {tag}
               </span>
             ))}
           </div>
         )}
-        <span className="p-2 bg-white rounded-full editorial-shadow opacity-0 group-hover:opacity-100 transition-opacity">
+        <span className="p-2 bg-surface-container-lowest rounded-full editorial-shadow opacity-0 group-hover:opacity-100 transition-opacity">
           <MaterialIcon
             name="chevron_right"
             size={20}

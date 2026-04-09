@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 
 type NavLink = {
   label: string;
@@ -27,23 +30,18 @@ type TopAppBarProps =
       onAction?: () => void;
     };
 
-const DEFAULT_NAV_LINKS: NavLink[] = [
-  { label: "Explorar", href: "/" },
-  { label: "Guardados", href: "/guardados" },
-  { label: "Perfil", href: "/perfil" },
-];
-
 export default function TopAppBar(props: TopAppBarProps) {
+  const t = useTranslations();
   const pathname = usePathname();
 
   if (props.variant === "back") {
     return (
-      <header className="fixed top-0 w-full z-50 bg-white/80 glass-nav shadow-sm">
+      <header className="fixed top-0 w-full z-50 bg-surface-container-lowest/80 glass-nav shadow-sm">
         <div className="flex items-center justify-between px-6 py-4 w-full">
           <Link
             href={props.backHref ?? "/"}
             className="text-primary active:scale-95 transition-transform duration-200"
-            aria-label="Volver"
+            aria-label={t("nav.back")}
           >
             <span className="material-symbols-outlined">arrow_back</span>
           </Link>
@@ -54,7 +52,7 @@ export default function TopAppBar(props: TopAppBarProps) {
             <button
               onClick={props.onAction}
               className="text-primary active:scale-95 transition-transform duration-200"
-              aria-label="Acción"
+              aria-label={t("nav.close")}
             >
               <span className="material-symbols-outlined">{props.actionIcon}</span>
             </button>
@@ -67,21 +65,21 @@ export default function TopAppBar(props: TopAppBarProps) {
   }
 
   if (props.variant === "contextual") {
-    const { showNotifications = true, avatarSrc, avatarAlt = "Avatar" } = props;
+    const { showNotifications = true, avatarSrc, avatarAlt } = props;
     return (
-      <header className="fixed top-0 w-full z-50 bg-white/80 glass-nav shadow-sm">
+      <header className="fixed top-0 w-full z-50 bg-surface-container-lowest/80 glass-nav shadow-sm">
         <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">
           <Link href="/" className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary text-3xl">school</span>
             <span className="font-headline font-extrabold tracking-tighter text-primary text-2xl">
-              Fisiatría UCN
+              {t("app.name")}
             </span>
           </Link>
           <div className="flex items-center gap-3">
             {showNotifications && (
               <button
                 className="p-2 rounded-full hover:bg-surface-container transition-colors"
-                aria-label="Notificaciones"
+                aria-label={t("notifications")}
               >
                 <span className="material-symbols-outlined text-on-surface-variant">
                   notifications
@@ -89,12 +87,14 @@ export default function TopAppBar(props: TopAppBarProps) {
               </button>
             )}
             {avatarSrc ? (
-              <Link href="/perfil" aria-label="Mi perfil">
-                <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/20">
-                  <img
+              <Link href="/perfil" aria-label={t("nav.profile")}>
+                <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/20 relative">
+                  <Image
                     src={avatarSrc}
-                    alt={avatarAlt}
-                    className="w-full h-full object-cover"
+                    alt={avatarAlt ?? t("nav.profile")}
+                    fill
+                    sizes="36px"
+                    className="object-cover"
                   />
                 </div>
               </Link>
@@ -102,7 +102,7 @@ export default function TopAppBar(props: TopAppBarProps) {
               <Link
                 href="/perfil"
                 className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center"
-                aria-label="Mi perfil"
+                aria-label={t("nav.profile")}
               >
                 <span className="material-symbols-outlined text-primary text-xl">person</span>
               </Link>
@@ -114,16 +114,21 @@ export default function TopAppBar(props: TopAppBarProps) {
   }
 
   // variant === "default" (or undefined)
-  const navLinks = (props as { navLinks?: NavLink[] }).navLinks ?? DEFAULT_NAV_LINKS;
+  const defaultNavLinks: NavLink[] = [
+    { label: t("nav.explore"), href: "/" },
+    { label: t("nav.saved"), href: "/guardados" },
+    { label: t("nav.profile"), href: "/perfil" },
+  ];
+  const navLinks = (props as { navLinks?: NavLink[] }).navLinks ?? defaultNavLinks;
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant/20 shadow-sm">
       <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <span className="material-symbols-outlined text-primary text-3xl">school</span>
           <span className="font-headline font-extrabold tracking-tighter text-primary text-2xl">
-            Fisiatría UCN
+            {t("app.name")}
           </span>
         </Link>
 
@@ -139,7 +144,7 @@ export default function TopAppBar(props: TopAppBarProps) {
                   "font-label text-sm py-1 transition-colors",
                   isActive
                     ? "text-primary font-bold border-b-2 border-primary"
-                    : "text-gray-600 hover:text-primary px-3",
+                    : "text-on-surface-variant hover:text-primary px-3",
                 ].join(" ")}
               >
                 {label}
@@ -148,13 +153,16 @@ export default function TopAppBar(props: TopAppBarProps) {
           })}
         </div>
 
-        {/* Search icon */}
+        {/* Locale switcher and Search */}
+        <div className="flex items-center gap-2">
+          <LocaleSwitcher />
         <button
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-          aria-label="Buscar"
+          className="p-2 rounded-full hover:bg-surface-container transition-colors"
+          aria-label={t("nav.search")}
         >
-          <span className="material-symbols-outlined text-gray-600">search</span>
+          <span className="material-symbols-outlined text-on-surface-variant">search</span>
         </button>
+        </div>
       </div>
     </nav>
   );

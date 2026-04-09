@@ -26,22 +26,22 @@ export default function AccentCard({
 
   return (
     <article
-      className={`md:col-span-4 bg-gray-50 rounded-xl p-6 flex flex-col border-l-4 border-${color} hover:shadow-md transition-all cursor-pointer`}
+      className={`md:col-span-4 bg-surface-container-low rounded-xl p-6 flex flex-col border-l-4 border-${color} hover:shadow-md transition-all cursor-pointer`}
     >
       <Link href={href} className="flex flex-col h-full">
         <span className={`text-[10px] font-extrabold uppercase text-${color} mb-2`}>
           {source}
         </span>
-        <h3 className="font-headline text-lg font-bold text-gray-900 mb-3">
+        <h3 className="font-headline text-lg font-bold text-on-surface mb-3">
           {title}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+        <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-3 mb-4">
           {excerpt}
         </p>
         {date && (
           <div className="mt-auto pt-4 flex justify-between items-center">
             <span className={`text-xs font-bold text-${color}`}>{source}</span>
-            <span className="text-[10px] text-gray-500">{date}</span>
+            <span className="text-[10px] text-on-surface-variant">{date}</span>
           </div>
         )}
       </Link>

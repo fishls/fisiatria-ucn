@@ -38,7 +38,7 @@ export default function ToggleSwitch({
         <div>
           <p className="font-bold text-on-surface">{label}</p>
           {description && (
-            <p className="text-xs text-slate-500">{description}</p>
+            <p className="text-xs text-on-surface-variant">{description}</p>
           )}
         </div>
       </div>
@@ -55,12 +55,12 @@ export default function ToggleSwitch({
         <div
           className={[
             "w-11 h-6 rounded-full transition-colors",
-            "bg-slate-200 peer-checked:bg-primary",
+            "bg-surface-container-highest peer-checked:bg-primary",
             "peer-focus:outline-none",
             // Thumb
             "relative",
             "after:content-[''] after:absolute after:top-[2px] after:start-[2px]",
-            "after:bg-white after:border-gray-300 after:border after:rounded-full",
+            "after:bg-surface-container-lowest after:border-outline-variant after:border after:rounded-full",
             "after:h-5 after:w-5 after:transition-all",
             "peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full",
             "peer-checked:after:border-white",

@@ -39,7 +39,7 @@ export default function SectionHeader({
     >
       <div>
         {eyebrow && (
-          <span className="block text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-1">
+          <span className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1">
             {eyebrow}
           </span>
         )}

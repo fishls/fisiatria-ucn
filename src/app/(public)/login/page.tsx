@@ -3,6 +3,7 @@
 import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
 import CenteredFormLayout from "@/components/shell/CenteredFormLayout";
@@ -17,6 +18,7 @@ export default function LoginPage() {
 }
 
 function LoginForm() {
+  const t = useTranslations("auth");
   const router       = useRouter();
   const searchParams = useSearchParams();
 
@@ -48,9 +50,9 @@ function LoginForm() {
     } catch (err: unknown) {
       const code = (err as { code?: string }).code;
       if (code === "auth/invalid-credential" || code === "auth/user-not-found") {
-        setError("Correo o contraseña incorrectos.");
+        setError(t("invalidCredentials"));
       } else {
-        setError("Error al iniciar sesión. Intenta de nuevo.");
+        setError(t("loginError"));
       }
       setLoading(false);
     }
@@ -61,22 +63,21 @@ function LoginForm() {
       visual={{
         imageSrc: "https://placehold.co/600x800/006591/ffffff?text=Fisiatría+UCN",
         imageAlt: "Plataforma de investigación UCN",
-        headline: "Bienvenido de Vuelta.",
-        description:
-          "Accede al repositorio de investigación clínica y protocolos de rehabilitación de la UCN.",
+        headline: t("welcomeBack"),
+        description: t("loginDescription"),
       }}
       step={{
         currentStep: 0,
         totalSteps: 1,
-        stepLabel: "Acceso",
-        title: "Iniciar Sesión",
+        stepLabel: t("stepLabel"),
+        title: t("login"),
       }}
     >
       <form className="space-y-8" onSubmit={handleSubmit}>
         {/* Email */}
         <div className="space-y-2">
           <label htmlFor="email" className="block text-sm font-bold text-on-surface-variant tracking-wide uppercase px-1">
-            Correo Institucional
+            {t("institutionalEmail")}
           </label>
           <input
             id="email"
@@ -92,7 +93,7 @@ function LoginForm() {
         {/* Password */}
         <div className="space-y-2">
           <label htmlFor="password" className="block text-sm font-bold text-on-surface-variant tracking-wide uppercase px-1">
-            Contraseña
+            {t("password")}
           </label>
           <div className="relative">
             <input
@@ -100,7 +101,7 @@ function LoginForm() {
               type={showPw ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Ingresa tu contraseña"
+              placeholder={t("enterPassword")}
               required
               className="w-full bg-surface-container-high border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-xl py-4 px-5 pr-12 text-on-surface placeholder:text-outline transition-all"
             />
@@ -108,7 +109,7 @@ function LoginForm() {
               type="button"
               onClick={() => setShowPw((v) => !v)}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors"
-              aria-label={showPw ? "Ocultar contraseña" : "Mostrar contraseña"}
+              aria-label={showPw ? t("hidePassword") : t("showPassword")}
             >
               <span className="material-symbols-outlined">{showPw ? "visibility_off" : "visibility"}</span>
             </button>
@@ -133,12 +134,12 @@ function LoginForm() {
             disabled={loading}
             className="w-full shadow-lg"
           >
-            {loading ? "Ingresando…" : "Ingresar"}
+            {loading ? t("signingIn") : t("signIn")}
           </Button>
           <p className="text-center text-sm text-on-surface-variant">
-            ¿No tienes cuenta?{" "}
+            {t("noAccount")}{" "}
             <Link href="/registro" className="text-secondary font-bold hover:underline">
-              Regístrate aquí
+              {t("registerHere")}
             </Link>
           </p>
         </div>

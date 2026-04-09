@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 
 type CalendarEventRowProps = {
@@ -21,7 +23,7 @@ type CalendarEventRowProps = {
  * Pattern from programaci_n_acad_mica_detallada lines 124–183.
  * Active entries get a left accent stripe; future entries use reduced opacity.
  */
-export default function CalendarEventRow({
+export default async function CalendarEventRow({
   month,
   day,
   weekday,
@@ -34,6 +36,8 @@ export default function CalendarEventRow({
   href,
   isActive = false,
 }: CalendarEventRowProps) {
+  const t = await getTranslations("schedule");
+
   return (
     <Link href={href}>
       <article
@@ -100,7 +104,7 @@ export default function CalendarEventRow({
               ))}
               {featured && (
                 <span className="px-2 py-0.5 rounded bg-orange-100 text-[10px] font-bold uppercase text-primary">
-                  Destacado
+                  {t("featured")}
                 </span>
               )}
             </div>
@@ -121,11 +125,15 @@ export default function CalendarEventRow({
           <div className="flex items-center gap-4 py-2">
             <div className="flex items-center gap-2">
               {speakerAvatarUrl ? (
-                <img
-                  src={speakerAvatarUrl}
-                  alt={speakerName}
-                  className="w-8 h-8 rounded-full bg-slate-200 object-cover"
-                />
+                <div className="w-8 h-8 rounded-full bg-surface-container relative overflow-hidden">
+                  <Image
+                    src={speakerAvatarUrl}
+                    alt={speakerName}
+                    fill
+                    sizes="32px"
+                    className="object-cover"
+                  />
+                </div>
               ) : (
                 <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
                   <MaterialIcon name="person" size={20} className="text-sm text-on-surface-variant" />

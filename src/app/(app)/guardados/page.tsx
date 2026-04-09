@@ -4,17 +4,20 @@ import { getSession } from "@/lib/auth/session";
 import { SOURCE_VARIANT } from "@/types";
 import { SavedArticleCard, SeminarCard } from "@/components/content";
 import { SectionHeader, Chip } from "@/components/ui";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("saved.title")} — ${t("app.name")}`,
+    description: "Artículos y presentaciones guardados en su biblioteca personal.",
+  };
+}
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Guardados — Fisiatría UCN",
-  description: "Artículos y presentaciones guardados en su biblioteca personal.",
-};
-
-const FILTER_CHIPS = ["Todos", "Journal", "Fecha", "Tipo"];
-
 export default async function GuardadosPage() {
+  const t = await getTranslations();
   const session = await getSession();
 
   const [savedIds, allAbstracts] = await Promise.all([
@@ -27,6 +30,8 @@ export default async function GuardadosPage() {
   const savedSeminarIds = session ? await getSavedSeminarIds(session.uid) : [];
   const savedSeminars   = await getSavedSeminars(savedSeminarIds);
 
+  const FILTER_CHIPS = [t("saved.filterAll"), t("saved.filterJournal"), t("saved.filterDate"), t("saved.filterType")];
+
   return (
     <>
       {/* Header + filter bar */}
@@ -34,10 +39,10 @@ export default async function GuardadosPage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
           <div>
             <span className="font-label text-sm uppercase tracking-widest text-secondary font-bold mb-2 block">
-              MI BIBLIOTECA
+              {t("saved.subtitle")}
             </span>
             <h1 className="font-headline text-4xl font-extrabold text-on-surface tracking-tight leading-tight">
-              Guardados
+              {t("saved.title")}
             </h1>
           </div>
         </div>
@@ -53,11 +58,11 @@ export default async function GuardadosPage() {
       {/* Saved Articles */}
       <section className="mb-12">
         <SectionHeader
-          title="Artículos Científicos Guardados"
-          action={{ label: "Ver todo", href: "/buscar" }}
+          title={t("saved.articlesTitle")}
+          action={{ label: t("actions.viewAll"), href: "/buscar" }}
         />
         {savedArticles.length === 0 ? (
-          <p className="text-on-surface-variant text-sm py-8 text-center">No tienes artículos guardados aún.</p>
+          <p className="text-on-surface-variant text-sm py-8 text-center">{t("saved.noArticles")}</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {savedArticles.map((article) => (
@@ -77,9 +82,9 @@ export default async function GuardadosPage() {
 
       {/* Saved Seminars */}
       <section className="mb-12">
-        <SectionHeader title="Presentaciones Guardadas" />
+        <SectionHeader title={t("saved.seminarsTitle")} />
         {savedSeminars.length === 0 ? (
-          <p className="text-on-surface-variant text-sm py-8 text-center">No tienes presentaciones guardadas aún.</p>
+          <p className="text-on-surface-variant text-sm py-8 text-center">{t("saved.noSeminars")}</p>
         ) : (
           <div className="space-y-4">
             {savedSeminars.map((seminar) => (

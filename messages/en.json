@@ -1,0 +1,158 @@
+{
+  "app": {
+    "name": "Fisiatría UCN",
+    "tagline": "Academic Platform for Physical Medicine",
+    "institution": "Universidad Católica del Norte",
+    "shortName": "UCN"
+  },
+  "nav": {
+    "back": "Back",
+    "close": "Close",
+    "search": "Search",
+    "profile": "Profile",
+    "explore": "Explore",
+    "saved": "Saved",
+    "home": "Home",
+    "publications": "Publications"
+  },
+  "actions": {
+    "save": "Save",
+    "share": "Share",
+    "viewAll": "View all",
+    "viewOriginal": "View original",
+    "syncCalendar": "Sync calendar",
+    "readSummary": "Read summary",
+    "notFound": "Go back home"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you're looking for doesn't exist or has been moved."
+  },
+  "notifications": "Notifications",
+  "filters": {
+    "parameters": "Search parameters",
+    "keywords": "Keywords",
+    "keywordsPlaceholder": "Ex: rehabilitation, chronic pain...",
+    "journals": "Scientific journals",
+    "dateRange": "Date range",
+    "from": "From",
+    "to": "To",
+    "last5Years": "Last 5 years",
+    "fullArchive": "Full archive"
+  },
+  "searching": "Searching...",
+  "executeSearch": "Execute search",
+  "verifiedData": {
+    "title": "Verified data",
+    "description": "Information reviewed by UCN specialists"
+  },
+  "schedule": {
+    "featured": "Featured",
+    "title": "Academic Schedule",
+    "subtitle": "Calendar",
+    "semester": "First Semester 2026",
+    "nextPresentations": "Upcoming presentations",
+    "academicSources": "Academic sources",
+    "notes": "Important notes",
+    "notesDescription": "Presentations are subject to change. Please check the calendar regularly."
+  },
+  "saved": {
+    "readPdf": "Read PDF",
+    "title": "Saved",
+    "subtitle": "Library",
+    "filterAll": "All",
+    "filterJournal": "Journal",
+    "filterDate": "Date",
+    "filterType": "Type",
+    "articlesTitle": "Saved articles",
+    "noArticles": "You have no saved articles",
+    "seminarsTitle": "Saved seminars",
+    "noSeminars": "You have no saved seminars"
+  },
+  "metadata": {
+    "speaker": "Speaker",
+    "peerReviewed": "Peer reviewed",
+    "openAccess": "Open access",
+    "published": "Published",
+    "doi": "DOI",
+    "abstract": "Abstract",
+    "keywords": "Keywords",
+    "verifiedSource": "UCN verified source"
+  },
+  "detail": {
+    "title": "Article detail",
+    "breadcrumbs": "Breadcrumb",
+    "pdf": "Download PDF"
+  },
+  "dashboard": {
+    "featured": "Featured in",
+    "saveToLibrary": "Save to library",
+    "impactTitle": "Impact metrics",
+    "impactDescription": "Academic impact of Physiatry research",
+    "archiveTitle": "Historical archive",
+    "noPublications": "No publications",
+    "noPublicationsDesc": "No recent publications found"
+  },
+  "hero": {
+    "subtitle": "Academic platform",
+    "title": "Fisiatría UCN",
+    "badges": {
+      "ajpmr": "AJPMR",
+      "minerva": "Minerva"
+    }
+  },
+  "empty": {
+    "noPublications": "No publications available",
+    "noPublicationsDesc": "Check back later for new content"
+  },
+  "search": {
+    "title": "Search",
+    "description": "Search for physiatry scientific articles",
+    "subtitle": "Explore",
+    "results": "result",
+    "resultsPlural": "results",
+    "noResults": "No results found",
+    "noResultsDesc": "Try different search terms"
+  },
+  "login": {
+    "welcomeBack": "Welcome back",
+    "loginDescription": "Sign in to access the platform",
+    "stepLabel": "Step 1 of 2",
+    "login": "Sign in",
+    "institutionalEmail": "Institutional email",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "signingIn": "Signing in...",
+    "signIn": "Sign in",
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here",
+    "invalidCredentials": "Invalid credentials",
+    "loginError": "Error signing in"
+  },
+  "profile": {
+    "changePhoto": "Change photo",
+    "specialty": "Physical Medicine and Rehabilitation",
+    "personalInfo": "Personal information",
+    "fullName": "Full name",
+    "email": "Email",
+    "institution": "Institution",
+    "interests": "Specialties of interest",
+    "addSpecialty": "Add specialty",
+    "preferences": "Preferences",
+    "notifications": {
+      "newAbstracts": "New abstracts",
+      "newAbstractsDesc": "Get notified when new abstracts are available",
+      "weeklyDigest": "Weekly digest",
+      "weeklyDigestDesc": "Receive a weekly summary of the most relevant publications"
+    },
+    "security": {
+      "title": "Security",
+      "changePassword": "Change password",
+      "twoFactor": "Two-factor authentication",
+      "privacy": "Data privacy"
+    },
+    "logout": "Sign out"
+  }
+}

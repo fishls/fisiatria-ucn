@@ -23,17 +23,17 @@ export default function SideCard({
   saveLabel = "Guardar en Biblioteca UCN",
 }: SideCardProps) {
   return (
-    <article className="md:col-span-4 bg-white border border-gray-100 rounded-xl editorial-shadow p-6 flex flex-col justify-between hover:border-secondary transition-all cursor-pointer">
+    <article className="md:col-span-4 bg-surface-container-lowest border border-outline-variant/20 rounded-xl editorial-shadow p-6 flex flex-col justify-between hover:border-secondary transition-all cursor-pointer">
       <Link href={href} className="flex flex-col h-full justify-between">
         <div>
           <div className="mb-4 text-xs font-bold text-secondary tracking-wider flex justify-between items-center">
             <span>{source}</span>
             {year && <span>{year}</span>}
           </div>
-          <h3 className="font-headline text-lg font-bold text-gray-900 mb-3">
+          <h3 className="font-headline text-lg font-bold text-on-surface mb-3">
             {title}
           </h3>
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-4">
+          <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-4">
             {excerpt}
           </p>
         </div>

@@ -20,7 +20,7 @@ const variantClasses: Record<ChipVariant, string> = {
     "bg-surface-container-high text-on-surface-variant font-semibold hover:bg-surface-container-highest transition-colors",
   // Article keyword chip — white bg with primary border + editorial shadow
   keyword:
-    "bg-white text-primary border border-primary/20 font-medium editorial-shadow",
+    "bg-surface-container-lowest text-primary border border-primary/20 font-medium editorial-shadow",
 };
 
 export default function Chip({

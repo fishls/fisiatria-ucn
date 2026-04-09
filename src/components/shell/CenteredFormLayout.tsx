@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type StepIndicatorProps = {
@@ -75,16 +76,18 @@ export default function CenteredFormLayout({
 
       {/* Main split layout */}
       <main className="flex-grow flex items-center justify-center p-6 md:p-12">
-        <div className="w-full max-w-4xl grid md:grid-cols-2 bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0_24px_48px_rgba(15,29,37,0.06)]">
+        <div className="w-full max-w-4xl grid md:grid-cols-2 bg-surface-container-lowest rounded-3xl overflow-hidden shadow-2xl shadow-surface/20">
 
           {/* Left column: decorative visual (hidden on mobile) */}
           {visual && (
             <div className="relative hidden md:block bg-secondary overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/80 to-secondary-container/90 mix-blend-multiply z-10" />
-              <img
+              <Image
                 src={visual.imageSrc}
                 alt={visual.imageAlt}
-                className="absolute inset-0 object-cover w-full h-full"
+                fill
+                sizes="50vw"
+                className="object-cover"
               />
               <div className="relative z-20 p-12 h-full flex flex-col justify-end text-white">
                 <h2 className="text-4xl font-headline font-extrabold tracking-tighter leading-tight mb-4">
@@ -106,7 +109,7 @@ export default function CenteredFormLayout({
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-6 text-center text-slate-400 text-sm">
+      <footer className="py-8 px-6 text-center text-on-surface-variant text-sm">
         {footerNote ?? (
           <p>© {new Date().getFullYear()} Departamento de Fisiatría UCN. Todos los derechos reservados.</p>
         )}

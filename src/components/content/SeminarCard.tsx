@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 
 type SeminarCardProps = {
@@ -16,7 +18,7 @@ type SeminarCardProps = {
  * Pattern from guardados_fisiatr_a_ucn lines 201–231.
  * Horizontal layout: image left | content center | play button right.
  */
-export default function SeminarCard({
+export default async function SeminarCard({
   imageUrl,
   imageAlt,
   date,
@@ -26,14 +28,18 @@ export default function SeminarCard({
   speakerAvatarUrl,
   onPlay,
 }: SeminarCardProps) {
+  const t = await getTranslations("metadata");
+
   return (
-    <article className="group flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
+    <article className="group flex flex-col md:flex-row bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
       {/* Image pane */}
       <div className="w-full md:w-48 h-32 md:h-auto relative bg-surface-container-highest shrink-0">
-        <img
+        <Image
           src={imageUrl}
           alt={imageAlt}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, 192px"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-secondary/20 group-hover:bg-transparent transition-colors" />
       </div>
@@ -53,11 +59,13 @@ export default function SeminarCard({
         <h4 className="text-lg font-bold text-on-surface mb-2">{title}</h4>
         <div className="flex items-center gap-3">
           {speakerAvatarUrl ? (
-            <div className="w-6 h-6 rounded-full bg-surface-container overflow-hidden shrink-0">
-              <img
+            <div className="w-6 h-6 rounded-full bg-surface-container overflow-hidden shrink-0 relative">
+              <Image
                 src={speakerAvatarUrl}
                 alt={speakerName}
-                className="w-full h-full object-cover"
+                fill
+                sizes="24px"
+                className="object-cover"
               />
             </div>
           ) : (
@@ -66,7 +74,7 @@ export default function SeminarCard({
             </div>
           )}
           <p className="text-sm text-on-surface-variant">
-            <span className="font-bold">Ponente:</span> {speakerName}
+            <span className="font-bold">{t("speaker")}:</span> {speakerName}
           </p>
         </div>
       </div>

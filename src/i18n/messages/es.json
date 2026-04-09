@@ -1,0 +1,183 @@
+{
+  "app": {
+    "name": "Fisiatría UCN",
+    "tagline": "Repositorio de Medicina Física y Rehabilitación",
+    "institution": "Universidad Católica del Norte"
+  },
+  "nav": {
+    "explore": "Explorar",
+    "saved": "Guardados",
+    "profile": "Perfil",
+    "search": "Buscar",
+    "back": "Volver",
+    "close": "Cerrar",
+    "home": "Inicio",
+    "publications": "Publicaciones"
+  },
+  "hero": {
+    "title": "Repositorio de Medicina Física y Rehabilitación.",
+    "subtitle": "INVESTIGACIÓN DE ELITE",
+    "badges": {
+      "ajpmr": "AJPM\u0026R",
+      "minerva": "Minerva Medica"
+    }
+  },
+  "dashboard": {
+    "featured": "DESTACADO",
+    "saveToLibrary": "Guardar en Biblioteca UCN",
+    "impactTitle": "Impacto Académico",
+    "impactDescription": "El factor de impacto de nuestras fuentes AJPM\u0026R y Minerva Medica lidera el sector este año.",
+    "archiveTitle": "Resúmenes de Archivo",
+    "noPublications": "Sin publicaciones aún",
+    "noPublicationsDesc": "El repositorio está vacío. Ejecuta el script de seed para poblar los datos."
+  },
+  "actions": {
+    "readSummary": "Leer Resumen",
+    "save": "Guardar",
+    "share": "Compartir",
+    "download": "Descargar",
+    "viewAll": "Ver todo",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "saveToLibrary": "Guardar en Biblioteca UCN",
+    "goHome": "Ir al Inicio",
+    "syncCalendar": "Sincronizar Calendario",
+    "viewOriginal": "Ver Diario Original",
+    "executeSearch": "Ejecutar Búsqueda",
+    "searching": "Buscando…",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
+  },
+  "metadata": {
+    "published": "Publicado",
+    "doi": "DOI",
+    "journal": "Revista",
+    "authors": "Autores",
+    "keywords": "Palabras Clave",
+    "peerReviewed": "Revisado por Pares",
+    "openAccess": "Acceso Abierto",
+    "verifiedSource": "Fuente verificada — índice de impacto \u003e3.5",
+    "abstract": "Resumen",
+    "speaker": "Ponente"
+  },
+  "search": {
+    "title": "Búsqueda Avanzada",
+    "subtitle": "BASE DE DATOS CLÍNICA",
+    "description": "Refine su búsqueda en bases de datos médicas premium. Seleccione sus criterios específicos para acceder a revistas revisadas por pares.",
+    "placeholder": "Buscar por título, autor o palabra clave...",
+    "results": "resultado",
+    "resultsPlural": "resultados",
+    "noResults": "Sin resultados",
+    "noResultsDesc": "Intente con otros términos o amplíe el rango de fechas.",
+    "filters": {
+      "title": "Filtros",
+      "parameters": "Parámetros de Búsqueda",
+      "journals": "Revistas",
+      "dateRange": "Rango de Fechas",
+      "from": "Desde",
+      "to": "Hasta",
+      "keywords": "Palabras Clave",
+      "keywordsPlaceholder": "p. ej. Neurorehabilitación",
+      "last5Years": "Últimos 5 años",
+      "fullArchive": "Archivo Completo"
+    },
+    "verifiedData": {
+      "title": "Datos Clínicos Verificados",
+      "description": "Su búsqueda está restringida a fuentes indexadas con un alto factor de impacto (\u003e3.5)."
+    }
+  },
+  "saved": {
+    "title": "Guardados",
+    "subtitle": "MI BIBLIOTECA",
+    "filterAll": "Todos",
+    "filterJournal": "Journal",
+    "filterDate": "Fecha",
+    "filterType": "Tipo",
+    "articlesTitle": "Artículos Científicos Guardados",
+    "seminarsTitle": "Presentaciones Guardadas",
+    "noArticles": "No tienes artículos guardados aún.",
+    "noSeminars": "No tienes presentaciones guardadas aún.",
+    "readPdf": "Leer PDF"
+  },
+  "schedule": {
+    "title": "Programación de Presentaciones",
+    "subtitle": "CALENDARIO ACADÉMICO",
+    "nextPresentations": "Próximas Presentaciones",
+    "semester": "SEMESTRE OTOÑO 2024",
+    "academicSources": "Fuentes Académicas",
+    "notes": "Notas",
+    "notesDescription": "Las presentaciones se realizan todos los miércoles a las 11:30 AM en el Auditorio Principal del Departamento de Fisiatría UCN. Acceso con credenciales institucionales.",
+    "featured": "Destacado"
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "specialty": "Especialista en Fisiatría",
+    "personalInfo": "Información Personal",
+    "fullName": "Nombre Completo",
+    "email": "Correo Institucional",
+    "institution": "Institución",
+    "interests": "Especialidades de Interés",
+    "addSpecialty": "Añadir especialidad",
+    "preferences": "Preferencias",
+    "notifications": {
+      "newAbstracts": "Notificaciones de nuevos resúmenes",
+      "newAbstractsDesc": "Alertas instantáneas de contenido nuevo",
+      "weeklyDigest": "Resumen semanal por correo",
+      "weeklyDigestDesc": "Compendio de investigaciones destacadas"
+    },
+    "security": {
+      "title": "Seguridad",
+      "changePassword": "Cambiar Contraseña",
+      "twoFactor": "Autenticación de Dos Factores",
+      "privacy": "Privacidad de Perfil"
+    },
+    "logout": "Cerrar Sesión",
+    "changePhoto": "Cambiar foto de perfil",
+    "loading": "Cargando perfil…"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "email": "Correo electrónico",
+    "institutionalEmail": "Correo Institucional",
+    "password": "Contraseña",
+    "enterPassword": "Ingresa tu contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?",
+    "continue": "Continuar",
+    "createAccount": "Crear cuenta",
+    "signIn": "Ingresar",
+    "signingIn": "Ingresando…",
+    "welcomeBack": "Bienvenido de Vuelta.",
+    "loginDescription": "Accede al repositorio de investigación clínica y protocolos de rehabilitación de la UCN.",
+    "stepLabel": "Acceso",
+    "invalidCredentials": "Correo o contraseña incorrectos.",
+    "loginError": "Error al iniciar sesión. Intenta de nuevo.",
+    "registerHere": "Regístrate aquí"
+  },
+  "detail": {
+    "title": "Detalle",
+    "breadcrumbs": "Migas de pan",
+    "pdf": "PDF"
+  },
+  "footer": {
+    "copyright": "© {year} Departamento de Fisiatría UCN. Todos los derechos reservados.",
+    "tagline": "Integridad y Excelencia Académica"
+  },
+  "empty": {
+    "noPublications": "Sin publicaciones aún",
+    "noPublicationsDesc": "El repositorio está vacío. Ejecuta el script de seed para poblar los datos.",
+    "noResults": "No se encontraron resultados para tu búsqueda."
+  },
+  "errors": {
+    "generic": "Ocurrió un error. Intenta de nuevo.",
+    "emailInUse": "Este correo ya tiene una cuenta. Inicia sesión.",
+    "required": "Este campo es requerido",
+    "notFound": "Página no encontrada",
+    "notFoundDesc": "El recurso que busca no existe o fue movido. Vuelva al repositorio principal."
+  }
+}

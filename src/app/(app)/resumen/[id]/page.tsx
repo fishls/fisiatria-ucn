@@ -4,18 +4,20 @@ import { notFound } from "next/navigation";
 import { getAbstractById, getAllAbstracts } from "@/lib/data";
 import { SOURCE_VARIANT } from "@/types";
 import { Badge, Button, MetadataItem, Chip } from "@/components/ui";
+import { getTranslations } from "next-intl/server";
 
 type Props = { params: { id: string } };
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const t = await getTranslations();
   const { id } = params;
   const article = await getAbstractById(id);
-  if (!article) return { title: "No encontrado — Fisiatría UCN" };
+  if (!article) return { title: `${t("errors.notFound")} — ${t("app.name")}` };
 
   return {
-    title: `${article.title} — Fisiatría UCN`,
+    title: `${article.title} — ${t("app.name")}`,
     description: article.excerpt,
     openGraph: {
       type: "article",
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function AbstractDetailPage({ params }: Props) {
+  const t = await getTranslations();
   const { id } = params;
   const article = await getAbstractById(id);
   if (!article) notFound();
@@ -38,15 +41,15 @@ export default async function AbstractDetailPage({ params }: Props) {
   return (
     <>
       {/* Inline top bar with back arrow — overrides AppShell default */}
-      <div className="fixed top-0 w-full z-50 bg-white/90 glass-nav shadow-sm border-b border-outline-variant">
+      <div className="fixed top-0 w-full z-50 bg-surface-container-lowest/90 glass-nav shadow-sm border-b border-outline-variant">
         <div className="flex items-center justify-between px-6 py-4 max-w-screen-xl mx-auto">
-          <a href="/" className="text-primary active:scale-95 transition-transform duration-200" aria-label="Volver">
+          <a href="/" className="text-primary active:scale-95 transition-transform duration-200" aria-label={t("nav.back")}>
             <span className="material-symbols-outlined">arrow_back</span>
           </a>
           <span className="font-headline font-bold tracking-tight text-lg truncate max-w-xs">
-            Detalle
+            {t("detail.title")}
           </span>
-          <a href="/buscar" className="p-2 rounded-full hover:bg-surface-container transition-colors" aria-label="Buscar">
+          <a href="/buscar" className="p-2 rounded-full hover:bg-surface-container transition-colors" aria-label={t("nav.search")}>
             <span className="material-symbols-outlined text-on-surface-variant">search</span>
           </a>
         </div>
@@ -73,13 +76,13 @@ export default async function AbstractDetailPage({ params }: Props) {
 
       <main className="pt-24 pb-32 px-6 max-w-4xl mx-auto">
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 mb-8 overflow-hidden whitespace-nowrap" aria-label="Migas de pan">
+        <nav className="flex items-center gap-2 mb-8 overflow-hidden whitespace-nowrap" aria-label={t("detail.breadcrumbs")}>
           <a href="/" className="text-on-surface-variant font-label text-sm hover:text-primary transition-colors">
-            Inicio
+            {t("nav.home")}
           </a>
           <span className="material-symbols-outlined text-outline text-xs">chevron_right</span>
           <a href="/buscar" className="text-on-surface-variant font-label text-sm hover:text-primary transition-colors">
-            Publicaciones
+            {t("nav.publications")}
           </a>
           <span className="material-symbols-outlined text-outline text-xs">chevron_right</span>
           <span className="text-primary font-label text-sm font-semibold truncate">{article.journal}</span>
@@ -90,10 +93,10 @@ export default async function AbstractDetailPage({ params }: Props) {
           <header className="space-y-6">
             <div className="flex flex-wrap gap-3">
               {article.peerReviewed && (
-                <Badge variant="filled-primary" size="sm">REVISADO POR PARES</Badge>
+                <Badge variant="filled-primary" size="sm">{t("metadata.peerReviewed")}</Badge>
               )}
               {article.openAccess && (
-                <Badge variant="outlined-secondary" size="sm">Acceso Abierto</Badge>
+                <Badge variant="outlined-secondary" size="sm">{t("metadata.openAccess")}</Badge>
               )}
             </div>
 
@@ -106,8 +109,8 @@ export default async function AbstractDetailPage({ params }: Props) {
                 {article.authors.join(", ")}
               </p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                <MetadataItem icon="calendar_today">Publicado: {article.publishedAtLabel}</MetadataItem>
-                <MetadataItem icon="link">DOI: {article.doi}</MetadataItem>
+                <MetadataItem icon="calendar_today">{t("metadata.published")}: {article.publishedAtLabel}</MetadataItem>
+                <MetadataItem icon="link">{t("metadata.doi")}: {article.doi}</MetadataItem>
                 <MetadataItem icon="auto_stories">{article.journal}</MetadataItem>
               </div>
             </div>
@@ -117,14 +120,14 @@ export default async function AbstractDetailPage({ params }: Props) {
           <div className="flex items-center justify-between py-4 border-y border-outline-variant">
             <div className="flex gap-4">
               <Button variant="primary" size="md" icon="bookmark" iconPosition="left">
-                Guardar
+                {t("actions.save")}
               </Button>
               <Button variant="secondary" size="md" icon="share" iconPosition="left">
-                Compartir
+                {t("actions.share")}
               </Button>
             </div>
             <Button variant="ghost" size="sm" icon="download" iconPosition="left">
-              PDF
+              {t("detail.pdf")}
             </Button>
           </div>
 
@@ -144,7 +147,7 @@ export default async function AbstractDetailPage({ params }: Props) {
           {/* Abstract body */}
           <section className="space-y-8 py-4">
             <div className="flex items-center gap-4">
-              <h2 className="font-headline font-bold text-2xl text-on-surface">Resumen</h2>
+              <h2 className="font-headline font-bold text-2xl text-on-surface">{t("metadata.abstract")}</h2>
               <div className="h-[2px] flex-grow bg-surface-container-high rounded-full" />
             </div>
             <div className="font-body text-lg text-on-surface leading-[1.8] space-y-6">
@@ -157,7 +160,7 @@ export default async function AbstractDetailPage({ params }: Props) {
           {/* Keywords */}
           <section className="p-8 bg-surface-container-low rounded-3xl space-y-4 border border-outline-variant">
             <h3 className="font-label font-bold text-sm uppercase tracking-widest text-on-surface-variant">
-              Palabras Clave
+              {t("metadata.keywords")}
             </h3>
             <div className="flex flex-wrap gap-2">
               {article.keywords.map((kw) => (
@@ -171,11 +174,11 @@ export default async function AbstractDetailPage({ params }: Props) {
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-secondary filled">verified</span>
               <span className="text-sm font-bold text-on-surface-variant">
-                Fuente verificada — índice de impacto &gt;3.5
+                {t("metadata.verifiedSource")}
               </span>
             </div>
             <Button variant="ghost" size="sm" trailingArrow>
-              Ver Diario Original
+              {t("actions.viewOriginal")}
             </Button>
           </footer>
         </article>

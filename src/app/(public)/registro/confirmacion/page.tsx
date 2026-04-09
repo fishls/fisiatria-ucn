@@ -124,7 +124,7 @@ export default function RegistroConfirmacionPage() {
                   className={[
                     "h-2 rounded-full transition-all",
                     dot.active
-                      ? "w-24 bg-primary shadow-[0_0_12px_rgba(247,147,29,0.4)]"
+                      ? "w-24 bg-primary shadow-lg shadow-primary/25"
                       : "w-12 bg-secondary-container",
                   ].join(" ")}
                 />
@@ -137,7 +137,7 @@ export default function RegistroConfirmacionPage() {
         </div>
 
         {/* Success callout */}
-        <div className="relative overflow-hidden rounded-2xl bg-white p-8 mb-10 shadow-card">
+        <div className="relative overflow-hidden rounded-2xl bg-surface-container-lowest p-8 mb-10 shadow-card">
           <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-container opacity-10 rounded-bl-full" />
           <div className="flex items-start gap-6">
             <div className="bg-primary/10 p-4 rounded-xl shrink-0">
@@ -164,7 +164,7 @@ export default function RegistroConfirmacionPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
 
           {/* Personal info */}
-          <div className="md:col-span-2 bg-white rounded-2xl p-8 shadow-sm">
+          <div className="md:col-span-2 bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
               <span className="material-symbols-outlined text-secondary">person</span>
               <h3 className="font-bold tracking-tight text-lg">Información Personal</h3>
@@ -220,7 +220,7 @@ export default function RegistroConfirmacionPage() {
             variant="primary"
             size="lg"
             shape="rounded"
-            className="shadow-[0_8px_20px_rgba(247,147,29,0.3)] hover:shadow-[0_12px_24px_rgba(247,147,29,0.4)]"
+            className="shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30"
             disabled={loading}
             onClick={handleRegister}
           >

@@ -1,0 +1,183 @@
+{
+  "app": {
+    "name": "Fisiatría UCN",
+    "tagline": "Physical Medicine \u0026 Rehabilitation Repository",
+    "institution": "Universidad Católica del Norte"
+  },
+  "nav": {
+    "explore": "Explore",
+    "saved": "Saved",
+    "profile": "Profile",
+    "search": "Search",
+    "back": "Back",
+    "close": "Close",
+    "home": "Home",
+    "publications": "Publications"
+  },
+  "hero": {
+    "title": "Physical Medicine \u0026 Rehabilitation Repository.",
+    "subtitle": "ELITE RESEARCH",
+    "badges": {
+      "ajpmr": "AJPM\u0026R",
+      "minerva": "Minerva Medica"
+    }
+  },
+  "dashboard": {
+    "featured": "FEATURED",
+    "saveToLibrary": "Save to UCN Library",
+    "impactTitle": "Academic Impact",
+    "impactDescription": "The impact factor of our AJPM\u0026R and Minerva Medica sources leads the sector this year.",
+    "archiveTitle": "Archive Abstracts",
+    "noPublications": "No publications yet",
+    "noPublicationsDesc": "The repository is empty. Run the seed script to populate data."
+  },
+  "actions": {
+    "readSummary": "Read Summary",
+    "save": "Save",
+    "share": "Share",
+    "download": "Download",
+    "viewAll": "View All",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "saveToLibrary": "Save to UCN Library",
+    "goHome": "Go Home",
+    "syncCalendar": "Sync Calendar",
+    "viewOriginal": "View Original Journal",
+    "executeSearch": "Execute Search",
+    "searching": "Searching…",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "metadata": {
+    "published": "Published",
+    "doi": "DOI",
+    "journal": "Journal",
+    "authors": "Authors",
+    "keywords": "Keywords",
+    "peerReviewed": "Peer Reviewed",
+    "openAccess": "Open Access",
+    "verifiedSource": "Verified source — impact index \u003e3.5",
+    "abstract": "Abstract",
+    "speaker": "Speaker"
+  },
+  "search": {
+    "title": "Advanced Search",
+    "subtitle": "CLINICAL DATABASE",
+    "description": "Refine your search in premium medical databases. Select your specific criteria to access peer-reviewed journals.",
+    "placeholder": "Search by title, author or keyword...",
+    "results": "result",
+    "resultsPlural": "results",
+    "noResults": "No results",
+    "noResultsDesc": "Try different terms or expand the date range.",
+    "filters": {
+      "title": "Filters",
+      "parameters": "Search Parameters",
+      "journals": "Journals",
+      "dateRange": "Date Range",
+      "from": "From",
+      "to": "To",
+      "keywords": "Keywords",
+      "keywordsPlaceholder": "e.g. Neurorehabilitation",
+      "last5Years": "Last 5 years",
+      "fullArchive": "Full Archive"
+    },
+    "verifiedData": {
+      "title": "Verified Clinical Data",
+      "description": "Your search is restricted to indexed sources with a high impact factor (\u003e3.5)."
+    }
+  },
+  "saved": {
+    "title": "Saved",
+    "subtitle": "MY LIBRARY",
+    "filterAll": "All",
+    "filterJournal": "Journal",
+    "filterDate": "Date",
+    "filterType": "Type",
+    "articlesTitle": "Saved Scientific Articles",
+    "seminarsTitle": "Saved Presentations",
+    "noArticles": "You don't have any saved articles yet.",
+    "noSeminars": "You don't have any saved presentations yet.",
+    "readPdf": "Read PDF"
+  },
+  "schedule": {
+    "title": "Presentation Schedule",
+    "subtitle": "ACADEMIC CALENDAR",
+    "nextPresentations": "Upcoming Presentations",
+    "semester": "FALL SEMESTER 2024",
+    "academicSources": "Academic Sources",
+    "notes": "Notes",
+    "notesDescription": "Presentations are held every Wednesday at 11:30 AM in the Main Auditorium of the UCN Physiatry Department. Access with institutional credentials.",
+    "featured": "Featured"
+  },
+  "profile": {
+    "title": "My Profile",
+    "specialty": "Physiatrist",
+    "personalInfo": "Personal Information",
+    "fullName": "Full Name",
+    "email": "Institutional Email",
+    "institution": "Institution",
+    "interests": "Specialties of Interest",
+    "addSpecialty": "Add specialty",
+    "preferences": "Preferences",
+    "notifications": {
+      "newAbstracts": "New abstracts notifications",
+      "newAbstractsDesc": "Instant alerts for new content",
+      "weeklyDigest": "Weekly email digest",
+      "weeklyDigestDesc": "Compilation of highlighted research"
+    },
+    "security": {
+      "title": "Security",
+      "changePassword": "Change Password",
+      "twoFactor": "Two-Factor Authentication",
+      "privacy": "Profile Privacy"
+    },
+    "logout": "Log Out",
+    "changePhoto": "Change profile photo",
+    "loading": "Loading profile…"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Sign Up",
+    "email": "Email address",
+    "institutionalEmail": "Institutional Email",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "forgotPassword": "Forgot your password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "continue": "Continue",
+    "createAccount": "Create account",
+    "signIn": "Sign In",
+    "signingIn": "Signing in…",
+    "welcomeBack": "Welcome Back.",
+    "loginDescription": "Access the UCN clinical research repository and rehabilitation protocols.",
+    "stepLabel": "Access",
+    "invalidCredentials": "Incorrect email or password.",
+    "loginError": "Error signing in. Please try again.",
+    "registerHere": "Sign up here"
+  },
+  "detail": {
+    "title": "Detail",
+    "breadcrumbs": "Breadcrumbs",
+    "pdf": "PDF"
+  },
+  "footer": {
+    "copyright": "© {year} Fisiatría UCN Department. All rights reserved.",
+    "tagline": "Integrity and Academic Excellence"
+  },
+  "empty": {
+    "noPublications": "No publications yet",
+    "noPublicationsDesc": "The repository is empty. Run the seed script to populate data.",
+    "noResults": "No results found for your search."
+  },
+  "errors": {
+    "generic": "An error occurred. Please try again.",
+    "emailInUse": "This email already has an account. Please sign in.",
+    "required": "This field is required",
+    "notFound": "Page not found",
+    "notFoundDesc": "The resource you're looking for doesn't exist or was moved. Return to the main repository."
+  }
+}

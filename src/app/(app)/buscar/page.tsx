@@ -5,11 +5,15 @@ import { SOURCE_VARIANT, type JournalSource } from "@/types";
 import { FilterSidebar } from "@/components/search";
 import { AbstractListItem } from "@/components/content";
 import { Badge, SectionHeader } from "@/components/ui";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Búsqueda — Fisiatría UCN",
-  description: "Busque en bases de datos médicas premium de Medicina Física y Rehabilitación.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: `${t("search.title")} — ${t("app.name")}`,
+    description: t("search.description"),
+  };
+}
 
 type SearchPageProps = {
   searchParams: {
@@ -21,6 +25,7 @@ type SearchPageProps = {
 };
 
 export default async function BuscarPage({ searchParams }: SearchPageProps) {
+  const t = await getTranslations();
   const sp = searchParams;
 
   const journals = sp.journals
@@ -39,14 +44,13 @@ export default async function BuscarPage({ searchParams }: SearchPageProps) {
       {/* Page header */}
       <header className="mb-10">
         <span className="font-label text-sm uppercase tracking-widest text-secondary font-bold mb-2 block">
-          BASE DE DATOS CLÍNICA
+          {t("search.subtitle")}
         </span>
         <h1 className="font-headline text-4xl font-extrabold text-on-surface tracking-tight leading-tight mb-4">
-          Búsqueda Avanzada
+          {t("search.title")}
         </h1>
         <p className="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
-          Refine su búsqueda en bases de datos médicas premium. Seleccione sus criterios
-          específicos para acceder a revistas revisadas por pares.
+          {t("search.description")}
         </p>
       </header>
 
@@ -60,7 +64,7 @@ export default async function BuscarPage({ searchParams }: SearchPageProps) {
         <div className="lg:col-span-8">
           <div className="flex items-center justify-between mb-6">
             <SectionHeader
-              title={`${results.length} resultado${results.length !== 1 ? "s" : ""}`}
+              title={`${results.length} ${results.length === 1 ? t("search.results") : t("search.resultsPlural")}`}
               className="mb-0"
             />
             {sp.q && (
@@ -73,8 +77,8 @@ export default async function BuscarPage({ searchParams }: SearchPageProps) {
           {results.length === 0 ? (
             <div className="py-20 text-center text-on-surface-variant">
               <span className="material-symbols-outlined text-5xl mb-4 block text-outline">search_off</span>
-              <p className="font-headline font-bold text-lg">Sin resultados</p>
-              <p className="text-sm mt-1">Intente con otros términos o amplíe el rango de fechas.</p>
+              <p className="font-headline font-bold text-lg">{t("search.noResults")}</p>
+              <p className="text-sm mt-1">{t("search.noResultsDesc")}</p>
             </div>
           ) : (
             <div className="space-y-3">
