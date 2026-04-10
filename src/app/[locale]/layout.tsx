@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import "./globals.css";
+import "../globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
