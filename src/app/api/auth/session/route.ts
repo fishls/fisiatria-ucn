@@ -25,8 +25,9 @@ export async function POST(request: NextRequest) {
     });
 
     return response;
-  } catch {
-    return NextResponse.json({ error: "Token inválido" }, { status: 401 });
+  } catch (err: any) {
+    console.error("Session creation error:", err);
+    return NextResponse.json({ error: "Token inválido: " + (err.message || String(err)) }, { status: 401 });
   }
 }
 

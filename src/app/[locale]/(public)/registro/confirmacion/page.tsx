@@ -68,7 +68,10 @@ export default function RegistroConfirmacionPage() {
         body: JSON.stringify({ idToken }),
       });
 
-      if (!res.ok) throw new Error("Error al crear sesión");
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Error al crear sesión");
+      }
 
       // 3. Limpiar sessionStorage y redirigir al dashboard
       sessionStorage.removeItem("reg_fullName");
@@ -77,11 +80,13 @@ export default function RegistroConfirmacionPage() {
 
       router.replace("/");
     } catch (err: unknown) {
-      const code = (err as { code?: string }).code;
+      const errorObj = err as any;
+      const code = errorObj.code;
+      const message = errorObj.message || String(err);
       if (code === "auth/email-already-in-use") {
         setError("Este correo ya tiene una cuenta. Inicia sesión.");
       } else {
-        setError("Ocurrió un error. Intenta de nuevo.");
+        setError(`Error: ${code || ''} ${message}`.trim());
       }
       setLoading(false);
     }
